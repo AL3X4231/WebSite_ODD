@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilan Carbone</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<script src="js/main.js"></script>
+<body>
+    <header>
+        <h1>Bilan Carbone</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="bilan.html">Calculer le Bilan Carbone</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bilan-section">
+            <h2>Qu'est-ce que le Bilan Carbone ?</h2>
+            <p>Le bilan carbone est un outil qui permet d'évaluer les émissions de gaz à effet de serre d'une personne, d'une entreprise ou d'une collectivité. Il aide à comprendre l'impact de nos activités sur l'environnement.</p>
+        </section>
+
+        <section class="bilan-section">
+            <h2>Comment calculer votre Bilan Carbone ?</h2>
+            <p>Pour calculer votre bilan carbone, vous devez prendre en compte plusieurs facteurs, tels que vos déplacements, votre consommation d'énergie, et vos habitudes de consommation.</p>
+            <form id="carbon-calculator">
+                <label for="transport">Transport (km par an) :</label>
+                <input type="number" id="transport" name="transport" required>
+                
+                <label for="energy">Consommation d'énergie (kWh par an) :</label>
+                <input type="number" id="energy" name="energy" required>
+                
+                <button type="submit">Calculer</button>
+            </form>
+            <div id="result"></div>
+        </section>
+
+        <section class="bilan-section">
+            <h2>Articles et Ressources</h2>
+            <article>
+                <h3>Impact des Gaz à Effet de Serre</h3>
+                <p>Les gaz à effet de serre contribuent au réchauffement climatique. Il est essentiel de réduire nos émissions pour protéger notre planète.</p>
+            </article>
+            <article>
+                <h3>Solutions pour Réduire son Bilan Carbone</h3>
+                <p>Il existe plusieurs façons de réduire son bilan carbone, comme utiliser les transports en commun, réduire sa consommation d'énergie, et adopter un mode de vie plus durable.</p>
+            </article>
+        </section>
+        <section id="graphique-bilan">
+            <div class="graph-header">
+                <h2>Répartition du Bilan Carbone en France (2022)</h2>
+                <div class="graph-box">
+                    <span class="graph-text">10 tonnes CO2eq/personne/an</span>
+                </div>
+            </div>
+            <div class="bar-chart-group">
+                <div class="bar-group">
+                    <div class="bar voiture" data-desc="Les déplacements en voiture représentent la plus grande part du bilan carbone individuel.">
+                        <span class="bar-label">Voiture<br>2110 kg</span>
+                    </div>
+                    <div class="bar avion" data-desc="Les voyages en avion ont un impact carbone très élevé par trajet.">
+                        <span class="bar-label">Avion<br>480 kg</span>
+                    </div>
+                    <div class="bar autres-transports" data-desc="Autres transports (train, bus, etc.).">
+                        <span class="bar-label">Autres transports<br>180 kg</span>
+                    </div>
+                    <div class="bar-group-label">Je me déplace</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar viande" data-desc="La consommation de viande génère beaucoup d'émissions de CO₂.">
+                        <span class="bar-label">Viande<br>890 kg</span>
+                    </div>
+                    <div class="bar lait" data-desc="Les produits laitiers et fromages contribuent aussi au bilan carbone.">
+                        <span class="bar-label">Laits et fromages<br>450 kg</span>
+                    </div>
+                    <div class="bar legumes" data-desc="Les fruits et légumes ont un impact moindre sur le climat.">
+                        <span class="bar-label">Fruits et légumes<br>370 kg</span>
+                    </div>
+                    <div class="bar boissons" data-desc="Les boissons incluent l'eau, les sodas, etc.">
+                        <span class="bar-label">Boissons<br>240 kg</span>
+                    </div>
+                    <div class="bar-group-label">Je mange</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar gaz" data-desc="Le chauffage au gaz et au fioul est très émetteur.">
+                        <span class="bar-label">Gaz et fioul<br>920 kg</span>
+                    </div>
+                    <div class="bar construction" data-desc="La construction et l'entretien du logement génèrent des émissions.">
+                        <span class="bar-label">Construction<br>520 kg</span>
+                    </div>
+                    <div class="bar electricite" data-desc="L'électricité dépend de la source d'énergie utilisée.">
+                        <span class="bar-label">Électricité<br>280 kg</span>
+                    </div>
+                    <div class="bar-group-label">Je me loge</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar maison" data-desc="L'entretien et l'équipement de la maison comptent aussi.">
+                        <span class="bar-label">Maison<br>680 kg</span>
+                    </div>
+                    <div class="bar loisirs" data-desc="Les loisirs incluent les activités sportives, culturelles, etc.">
+                        <span class="bar-label">Loisirs<br>350 kg</span>
+                    </div>
+                    <div class="bar vetements" data-desc="La fabrication des vêtements a un impact non négligeable.">
+                        <span class="bar-label">Vêtements<br>220 kg</span>
+                    </div>
+                    <div class="bar-group-label">J’achète</div>
+                </div>
+                <div class="bar-group">
+                    <div class="bar depense" data-desc="Les dépenses publiques incluent santé, éducation, infrastructures, etc.">
+                        <span class="bar-label">Dépense publique<br>270 kg</span>
+                    </div>
+                    <div class="bar autres-depenses" data-desc="Autres dépenses publiques.">
+                        <span class="bar-label">Autres<br>260 kg</span>
+                    </div>
+                    <div class="bar-group-label">Dépense publique</div>
+                </div>
+            </div>
+            <div id="bar-desc" class="bar-desc"></div>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
