@@ -7,13 +7,19 @@ body {
 
 header {
     position: sticky;
-    top: 0;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 20px 24px 0 24px;
     background: #17b458;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     color: darkgreen;
     font-size: 1.5rem;
+    border-radius: 18px;
+    /* transition douce pour l'effet sticky */
+    transition: margin 0.2s, border-radius 0.2s;
 }
 
 header nav ul {
