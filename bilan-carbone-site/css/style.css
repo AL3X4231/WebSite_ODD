@@ -107,10 +107,35 @@ footer ul {
 }
 
 /* --- Graphique Bilan Carbone --- */
+/* Beautify the background behind the graphique-bilan section */
 #graphique-bilan {
+    background: linear-gradient(135deg, #e0f7fa 60%, #a8e6cf 100%);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(23,180,88,0.10);
+    padding: 36px 18px 28px 18px;
     margin: 40px auto 0 auto;
     max-width: 1100px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Add a subtle decorative pattern with a pseudo-element */
+#graphique-bilan::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at 30% 30%, #17b45833 0%, transparent 80%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+#graphique-bilan > * {
+    position: relative;
+    z-index: 1;
 }
 
 .graph-header {
