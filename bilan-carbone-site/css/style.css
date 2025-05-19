@@ -1,6 +1,6 @@
 /* --- Global background and font --- */
 body {
-    background: #ffffff;
+    background: #f0ffef;
     font-family: 'Inter', Arial, sans-serif;
     color: #174c2b;
     margin: 0;
@@ -199,6 +199,180 @@ main {
     }
 }
 
+/* --- Graphique Bilan Carbone --- */
+/* Beautify the background behind the graphique-bilan section */
+#graphique-bilan {
+    background: linear-gradient(135deg, #e0f7fa 60%, #a8e6cf 100%);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(23,180,88,0.10);
+    padding: 36px 18px 28px 18px;
+    margin: 40px auto 0 auto;
+    max-width: 1100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Add a subtle decorative pattern with a pseudo-element */
+#graphique-bilan::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at 30% 30%, #17b45833 0%, transparent 80%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+#graphique-bilan > * {
+    position: relative;
+    z-index: 1;
+}
+
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.graph-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+.graph-img {
+    height: 70px;
+    margin-left: 20px;
+}
+.graph-box {
+    background: linear-gradient(135deg, #a8e6cf 60%, #17b458 100%);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    min-width: 220px;
+    min-height: 60px;
+}
+
+.graph-text {
+    color: #223344;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.bar-chart-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 90px;
+}
+
+.bar-group-bars {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.bar-group-label {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    min-height: 24px;
+}
+
+.bar {
+    position: relative;
+    width: 150px;
+    background: #17b458;
+    cursor: pointer;
+    transition: 0.2s, transform 0.2s;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.bar.voiture,
+.bar.viande,
+.bar.gaz,
+.bar.maison,
+.bar.depense {
+    border-radius: 15px 15px 0 0;
+}
+
+.bar-label {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+    text-shadow: 1px 1px 2px #0006;
+    pointer-events: none;
+}
+
+.bar:hover {
+    background: #45a049;
+    transform: scaleY(1.05);
+}
+
+.bar.voiture { height: 320px; background: #223344; }
+.bar.avion { height: 70px; background: #4a6fa5; }
+.bar.autres-transports { padding-top: 18px; height: 27px; background: #6c7a89; }
+.bar.viande { height: 135px; background: #e74c3c; }
+.bar.lait { height: 68px; background: #e67e22; }
+.bar.legumes { height: 56px; background: #27ae60; }
+.bar.boissons { padding-top: 18px; height: 36px; background: #8e44ad; }
+.bar.gaz { height: 138px; background: #2980b9; }
+.bar.construction { height: 78px; background: #16a085; }
+.bar.electricite { padding-top: 18px; height: 42px; background: #f1c40f; color: #222; }
+.bar.maison { height: 100px; background: #95a5a6; color: #222; }
+.bar.loisirs { height: 52px; background: #2ecc71; }
+.bar.vetements { padding-top: 18px; height: 33px; background: #34495e; }
+.bar.depense { padding-top: 18px; height: 40px; background: #7f8c8d; color: #222; }
+.bar.autres-depenses { padding-top: 18px; height: 33px; background: #b2bec3; }
+.bar.autres-transports .bar-label,
+.bar.boissons .bar-label,
+.bar.electricite .bar-label,
+.bar.vetements .bar-label,
+.bar.depense .bar-label,
+.bar.autres-depenses .bar-label {
+    font-size: 0.7rem;
+}
+.bar-group-bars
+.bar-desc {
+    min-height: 30px;
+    font-size: 1.1rem;
+    color: #222;
+    margin-top: 10px;
+    font-style: italic;
+    transition: color 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .bar-chart-group { gap: 10px; }
+    .bar-group { min-width: 40px; }
+    .bar-group-bars .bar { width: 28px; font-size: 0.8rem; }
+    .graph-img { height: 40px; }
+}
+
 /* --- Main columns layout --- */
 .main-columns {
     display: flex;
@@ -224,7 +398,7 @@ main {
 }
 .main-divider {
     width: 2px;
-    background: #eafaf1;
+    background: #d1fde4;
     height: 420px;
     margin: 0 18px;
     border-radius: 2px;

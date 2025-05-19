@@ -26,9 +26,8 @@
         <div class="main-columns">
             <section class="main-left">
                 <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; width: 100%; gap: 24px;">
-                    <div style="flex: 1 1 0; min-width: 0;">
-                        <h1 class="main-title">Calculate Your<br>Carbon Footprint</h1>
-                        <p class="main-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.</p>
+                    <div style="flex: 1 1 0; min-width: 0;">                        <h1 class="main-title">Calculate Your<br>Carbon Footprint</h1>
+                        <p class="main-description">Discover your personal environmental impact with our easy-to-use carbon footprint calculator. By understanding your carbon emissions, you'll gain insight into how your daily choices affect the planet and identify simple changes you can make to reduce your impact. Take the first step towards a more sustainable lifestyle today.</p>
                         <a href="bilan.html" class="main-cta-btn">Calculate</a>
                     </div>
                     <div class="main-image-group" style="flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; min-width: 0;">
@@ -38,11 +37,81 @@
                 </div>
             </section>
             <div class="main-divider"></div>
-            <section class="main-right">
-                <h2 class="main-right-title">Why Measure Your CO2 Emissions?</h2>
-                <p class="main-right-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <section class="main-right">                <h2 class="main-right-title">Why Measure Your CO2 Emissions?</h2>
+                <p class="main-right-description">Measuring your carbon footprint is the first step toward making a positive environmental impact. Our calculator helps you identify which aspects of your lifestyle contribute most to climate change – from transportation and housing to food choices and consumption habits. Armed with this knowledge, you can make targeted changes that reduce emissions while often saving money and improving your quality of life. Climate action starts with awareness, and every reduction in CO2 emissions contributes to a healthier planet for future generations.</p>
             </section>
         </div>
+        <section id="graphique-bilan">
+        <div class="graph-header">
+            <h2>Répartition du Bilan Carbone en France (2024)</h2>
+            <div class="graph-box">
+                <span class="graph-text">10 tonnes CO2eq/personne/an</span>
+            </div>
+        </div>
+        <div class="bar-chart-group">
+            <div class="bar-group">
+                <div class="bar voiture" data-desc="Les déplacements en voiture représentent la plus grande part du bilan carbone individuel.">
+                    <span class="bar-label">Voiture<br>2110 kg</span>
+                </div>
+                <div class="bar avion" data-desc="Les voyages en avion ont un impact carbone très élevé par trajet.">
+                    <span class="bar-label">Avion<br>480 kg</span>
+                </div>
+                <div class="bar autres-transports" data-desc="Autres transports (train, bus, etc.).">
+                    <span class="bar-label">Autres transports<br>180 kg</span>
+                </div>
+                <div class="bar-group-label">Je me déplace</div>
+            </div>
+            <div class="bar-group">
+                <div class="bar viande" data-desc="La consommation de viande génère beaucoup d'émissions de CO₂.">
+                    <span class="bar-label">Viande<br>890 kg</span>
+                </div>
+                <div class="bar lait" data-desc="Les produits laitiers et fromages contribuent aussi au bilan carbone.">
+                    <span class="bar-label">Laits et fromages<br>450 kg</span>
+                </div>
+                <div class="bar legumes" data-desc="Les fruits et légumes ont un impact moindre sur le climat.">
+                    <span class="bar-label">Fruits et légumes<br>370 kg</span>
+                </div>
+                <div class="bar boissons" data-desc="Les boissons incluent l'eau, les sodas, etc.">
+                    <span class="bar-label">Boissons<br>240 kg</span>
+                </div>
+                <div class="bar-group-label">Je mange</div>
+            </div>
+            <div class="bar-group">
+                <div class="bar gaz" data-desc="Le chauffage au gaz et au fioul est très émetteur.">
+                    <span class="bar-label">Gaz et fioul<br>920 kg</span>
+                </div>
+                <div class="bar construction" data-desc="La construction et l'entretien du logement génèrent des émissions.">
+                    <span class="bar-label">Construction<br>520 kg</span>
+                </div>
+                <div class="bar electricite" data-desc="L'électricité dépend de la source d'énergie utilisée.">
+                    <span class="bar-label">Électricité<br>280 kg</span>
+                </div>
+                <div class="bar-group-label">Je me loge</div>
+            </div>
+            <div class="bar-group">
+                <div class="bar maison" data-desc="L'entretien et l'équipement de la maison comptent aussi.">
+                    <span class="bar-label">Maison<br>680 kg</span>
+                </div>
+                <div class="bar loisirs" data-desc="Les loisirs incluent les activités sportives, culturelles, etc.">
+                    <span class="bar-label">Loisirs<br>350 kg</span>
+                </div>
+                <div class="bar vetements" data-desc="La fabrication des vêtements a un impact non négligeable.">
+                    <span class="bar-label">Vêtements<br>220 kg</span>
+                </div>
+                <div class="bar-group-label">J’achète</div>
+            </div>
+            <div class="bar-group">
+                <div class="bar depense" data-desc="Les dépenses publiques incluent santé, éducation, infrastructures, etc.">
+                    <span class="bar-label">Dépense publique<br>270 kg</span>
+                </div>
+                <div class="bar autres-depenses" data-desc="Autres dépenses publiques.">
+                    <span class="bar-label">Autres<br>260 kg</span>
+                </div>
+                <div class="bar-group-label">Dépense publique</div>
+            </div>
+        </div>
+        <div id="bar-desc" class="bar-desc"></div>
+    </section>
     </main>
 
     <footer class="footer">

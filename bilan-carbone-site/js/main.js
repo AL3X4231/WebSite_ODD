@@ -19,14 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.dechets-form-container')
     ];
     let currentStep = 0;
-
-    function showStep(idx) {
+    
+    // Circles (steps) in the progress bar
+    const steps = document.querySelectorAll('.steps-bar .step');
+    // Container for the progress lines
+    const stepsBar = document.querySelector('.steps-bar');    function showStep(idx) {
+        // Update form visibility
         forms.forEach((form, i) => {
             if (form) form.style.display = (i === idx) ? 'block' : 'none';
         });
-    }
-
-    // Next/Prev buttons for each step
+        
+        // Update step circles
+        steps.forEach((step, i) => {
+            if (i < idx) {
+                // Previous steps
+                step.classList.add('completed');
+                step.classList.remove('active');
+            } else if (i === idx) {
+                // Current step
+                step.classList.add('active');
+                step.classList.remove('completed');
+            } else {
+                // Future steps
+                step.classList.remove('active');
+                step.classList.remove('completed');
+            }
+        });
+        
+        // Update progress lines
+        stepsBar.classList.remove('step-1-active', 'step-2-active', 'step-3-active', 'step-4-active', 'step-5-active');
+        stepsBar.classList.add(`step-${idx + 1}-active`);
+    }// Next/Prev buttons for each step
     document.querySelector('.btn-next-transport')?.addEventListener('click', function(e) {
         e.preventDefault();
         currentStep = 1;
@@ -66,5 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         currentStep = 3;
         showStep(currentStep);
-    });
+    });      // Initialiser l'affichage avec le premier formulaire et mettre à jour la barre de progression
+    showStep(currentStep);
 });

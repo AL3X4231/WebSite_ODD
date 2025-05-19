@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    padding-top: 120px; /* Ajout d'un padding-top pour éviter que le contenu soit caché derrière le header */
 }
 
 header {
@@ -104,180 +105,6 @@ footer ul {
         display: block;
         margin: 5px 0;
     }
-}
-
-/* --- Graphique Bilan Carbone --- */
-/* Beautify the background behind the graphique-bilan section */
-#graphique-bilan {
-    background: linear-gradient(135deg, #e0f7fa 60%, #a8e6cf 100%);
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(23,180,88,0.10);
-    padding: 36px 18px 28px 18px;
-    margin: 40px auto 0 auto;
-    max-width: 1100px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Optional: Add a subtle decorative pattern with a pseudo-element */
-#graphique-bilan::before {
-    content: "";
-    position: absolute;
-    top: -60px;
-    left: -60px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle at 30% 30%, #17b45833 0%, transparent 80%);
-    z-index: 0;
-    pointer-events: none;
-}
-
-#graphique-bilan > * {
-    position: relative;
-    z-index: 1;
-}
-
-.graph-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-.graph-header h2 {
-    margin: 0;
-    font-size: 1.3rem;
-}
-.graph-img {
-    height: 70px;
-    margin-left: 20px;
-}
-.graph-box {
-    background: linear-gradient(135deg, #a8e6cf 60%, #17b458 100%);
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
-    min-width: 220px;
-    min-height: 60px;
-}
-
-.graph-text {
-    color: #223344;
-    font-size: 1.25rem;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
-
-.bar-chart-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.bar-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 90px;
-}
-
-.bar-group-bars {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 2px;
-}
-
-.bar-group-label {
-    margin-top: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #333;
-    text-align: center;
-    min-height: 24px;
-}
-
-.bar {
-    position: relative;
-    width: 150px;
-    background: #17b458;
-    cursor: pointer;
-    transition: 0.2s, transform 0.2s;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-.bar.voiture,
-.bar.viande,
-.bar.gaz,
-.bar.maison,
-.bar.depense {
-    border-radius: 15px 15px 0 0;
-}
-
-.bar-label {
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding-bottom: 10px;
-    text-shadow: 1px 1px 2px #0006;
-    pointer-events: none;
-}
-
-.bar:hover {
-    background: #45a049;
-    transform: scaleY(1.05);
-}
-
-.bar.voiture { height: 320px; background: #223344; }
-.bar.avion { height: 70px; background: #4a6fa5; }
-.bar.autres-transports { padding-top: 18px; height: 27px; background: #6c7a89; }
-.bar.viande { height: 135px; background: #e74c3c; }
-.bar.lait { height: 68px; background: #e67e22; }
-.bar.legumes { height: 56px; background: #27ae60; }
-.bar.boissons { padding-top: 18px; height: 36px; background: #8e44ad; }
-.bar.gaz { height: 138px; background: #2980b9; }
-.bar.construction { height: 78px; background: #16a085; }
-.bar.electricite { padding-top: 18px; height: 42px; background: #f1c40f; color: #222; }
-.bar.maison { height: 100px; background: #95a5a6; color: #222; }
-.bar.loisirs { height: 52px; background: #2ecc71; }
-.bar.vetements { padding-top: 18px; height: 33px; background: #34495e; }
-.bar.depense { padding-top: 18px; height: 40px; background: #7f8c8d; color: #222; }
-.bar.autres-depenses { padding-top: 18px; height: 33px; background: #b2bec3; }
-.bar.autres-transports .bar-label,
-.bar.boissons .bar-label,
-.bar.electricite .bar-label,
-.bar.vetements .bar-label,
-.bar.depense .bar-label,
-.bar.autres-depenses .bar-label {
-    font-size: 0.7rem;
-}
-.bar-group-bars
-.bar-desc {
-    min-height: 30px;
-    font-size: 1.1rem;
-    color: #222;
-    margin-top: 10px;
-    font-style: italic;
-    transition: color 0.2s;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .bar-chart-group { gap: 10px; }
-    .bar-group { min-width: 40px; }
-    .bar-group-bars .bar { width: 28px; font-size: 0.8rem; }
-    .graph-img { height: 40px; }
 }
 
 /* --- Mise en forme de la page À propos --- */
@@ -490,16 +317,102 @@ footer ul {
     max-width: 900px;
     position: relative;
     width: 90%;
+    padding-top:120px
 }
-.steps-bar::before {
-    content: '';
+
+/* Lignes de progression entre les étapes */
+.progress-line {
     position: absolute;
-    top: 35%;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #e0e0e0;
+    top: calc(35% + 80px);
+    height: 4px;
+    background: #bdbdbd;
     z-index: 0;
+    transition: all 0.4s ease;
+    border-radius: 2px;
+}
+
+/* Ligne 1 - entre étape 1 et 2 */
+.progress-line-1 {
+    left: 9.5%;
+    width: 15%;
+}
+
+/* Ligne 2 - entre étape 2 et 3 */
+.progress-line-2 {
+    left: 30%;
+    width: 15%;
+}
+
+/* Ligne 3 - entre étape 3 et 4 */
+.progress-line-3 {
+    left: 50%;
+    width: 15%;
+}
+
+/* Ligne 4 - entre étape 4 et 5 */
+.progress-line-4 {
+    left: 70%;
+    width: 15%;
+}
+
+/* Couleurs des lignes selon l'étape active - toutes en vert */
+
+/* Quand sur étape 2 (Housing) - ligne 1 colorée */
+.step-2-active .progress-line-1 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+
+/* Quand sur étape 3 (Food) - lignes 1 et 2 colorées */
+.step-3-active .progress-line-1 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+.step-3-active .progress-line-2 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+
+/* Quand sur étape 4 (Buy) - lignes 1, 2 et 3 colorées */
+.step-4-active .progress-line-1 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+.step-4-active .progress-line-2 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+.step-4-active .progress-line-3 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+
+/* Quand sur étape 5 (Waste) - toutes les lignes colorées */
+.step-5-active .progress-line-1 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+.step-5-active .progress-line-2 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+.step-5-active .progress-line-3 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
+}
+.step-5-active .progress-line-4 {
+    background: #2ebd6a; /* Vert - couleur transport */
+    box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
+    height: 5px;
 }
 .step {
     display: flex;
@@ -509,60 +422,85 @@ footer ul {
     z-index: 1;
     flex: 1 1 0;
 }
+
+/* Suppression des règles redondantes qui utilisent des sélecteurs complexes */
+.step:nth-child(3).active ~ .steps-bar::after,
+.step:nth-child(3).active::before {
+    background: #e74c3c;
+}
+
+/* Quand l'étape 4 (Buy) est active */
+.step:nth-child(4).active ~ .steps-bar::before,
+.step:nth-child(4).active ~ .steps-bar::after,
+.step:nth-child(4).active::before,
+.step:nth-child(3).active::before {
+    background: #f1c40f;
+}
+
+/* Quand l'étape 5 (Waste) est active */
+.step:nth-child(5).active ~ .steps-bar::before,
+.step:nth-child(5).active ~ .steps-bar::after,
+.step:nth-child(5).active::before,
+.step:nth-child(4).active::before,
+.step:nth-child(3).active::before {
+    background: #8e44ad;
+}
 .step img {
     width: 54px;
     height: 54px;
     background: #f5f5f5;
     border-radius: 50%;
     border: 4px solid #bdbdbd;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 6px;
-    transition: border 0.2s, background 0.2s;
+    transition: all 0.4s ease;
     object-fit: contain;
     padding: 18px;
 }
-/* Transport */
-.step:nth-child(1) img {
+/* Transport - Les styles sont appliqués seulement quand l'étape est active */
+.step:nth-child(1).active img {
     border-color: #2ebd6a;
     background: rgba(46,189,106,0.13);
     border-width: 4px;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px rgba(46,189,106,0.3);
+    transform: scale(1.05);
 }
 /* Housing */
-.step:nth-child(2) img {
+.step:nth-child(2).active img {
     border-color: #3dd0fa;
     background: rgba(47, 202, 244, 0.13);
     border-width: 4px;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px rgba(47, 202, 244, 0.3);
+    transform: scale(1.05);
 }
 /* Food */
-.step:nth-child(3) img {
+.step:nth-child(3).active img {
     border-color: #e74c3c;
     background: rgb(247, 190, 190);
     border-width: 4px;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px rgba(231, 76, 60, 0.3);
+    transform: scale(1.05);
 }
 /* Buy */
-.step:nth-child(4) img {
+.step:nth-child(4).active img {
     border-color: #f1c40f;
     background: rgb(255, 238, 144);
     border-width: 4px;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px rgba(241, 196, 15, 0.3);
+    transform: scale(1.05);
 }
 /* Waste and recycle */
-.step:nth-child(5) img {
+.step:nth-child(5).active img {
     border-color: #8e44ad;
     background: rgb(205, 154, 227);
     border-width: 4px;
-    box-shadow: 0 2px 12px #0002;
+    box-shadow: 0 2px 12px rgba(142, 68, 173, 0.3);
+    transform: scale(1.05);
 }
 .step.completed img {
     border-color: #6fcf97;
     background: #eafaf1;
-}
-.step.active img {
-    border-color: #3dd0fa;
-    background: #e6f7fd;
+    box-shadow: 0 2px 12px rgba(111, 207, 151, 0.2);
 }
 .step-label {
     font-size: 15px;
@@ -570,6 +508,7 @@ footer ul {
     margin-top: 2px;
     text-align: center;
     text-transform: lowercase;
+    transition: all 0.3s ease;
 }
 .step.completed .step-label {
     color: #219653;
