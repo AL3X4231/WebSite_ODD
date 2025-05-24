@@ -1,0 +1,51 @@
+main {
+    max-width: 600px;
+    margin: 2.5em auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(76,175,80,0.07);
+    padding: 2.5em 2em 2em 2em;
+}
+#graph {
+    margin-top: 2em;
+}
+.bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+    gap: 1em;
+}
+.bar-label {
+    width: 120px;
+    font-weight: 600;
+    color: #444;
+    font-size: 1.1em;
+}
+.bar {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    color: #111;
+    text-align: right;
+    padding-right: 18px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 14px;
+    transition: width 0.5s cubic-bezier(.4,2,.6,1), background 0.3s;
+    min-width: 2.5em;
+    box-shadow: 0 2px 8px rgba(76,175,80,0.10);
+}
+@media (max-width: 700px) {
+    main {
+        max-width: 98vw;
+        padding: 1em 0.5em;
+    }
+    .bar-label {
+        width: 80px;
+        font-size: 1em;
+    }
+    .bar {
+        font-size: 1em;
+        padding-right: 10px;
+    }
+}
