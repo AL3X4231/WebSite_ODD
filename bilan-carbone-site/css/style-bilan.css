@@ -3,56 +3,125 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    padding-top: 120px; /* Ajout d'un padding-top pour éviter que le contenu soit caché derrière le header */
+    padding-top: 120px; 
 }
 
-header {
-    position: sticky;
-    top: 20px;
-    left: 0;
-    right: 0;
-    margin: 20px 24px 0 24px;
-    background: #17b458;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
-    color: darkgreen;
-    font-size: 1.5rem;
-    border-radius: 18px;
-    /* transition douce pour l'effet sticky */
-    transition: margin 0.2s, border-radius 0.2s;
-}
-
-header nav ul {
+/* --- Fixed Header Bar with gap --- */
+.header {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+    width: auto;
+    z-index: 100;
+    background: linear-gradient(to right, #b0fdd4 60%, #4ab573 100%);
+    box-shadow: 0 2px 16px rgba(23, 76, 43, 0.08);
     display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0;
+    height: 72px;
+    border-radius: 18px;
+}
+.header__logo-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 18px;
+}
+.header__logo {
+    height: 48px;
+    width: auto;
+    margin: 0;
+}
+.header__bigfoot {
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: #174c2b;
+    letter-spacing: 1px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+.header__slogan {
+    font-size: 1.25rem;
+    color: #2ebd6a;
+    font-weight: 500;
+    margin-left: 10px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+.header__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #eafaf1;
+    letter-spacing: 0.5px;
+    margin-left: 0;
+    margin-right: 24px;
+}
+.header__nav-list {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    margin: 0 40px 0 0;
+    padding: 0;
+}
+.header__nav-list a {
+    color: #eafaf1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s, background 0.2s;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+.header__nav-list a:hover, .header__nav-list a:focus {
+    background: #2ebd6a;
+    color: #174c2b;
 }
 
-header h1 {
-    margin: 0 20px;
-    font-size: 2rem;
-    display: inline-block;
-    vertical-align: middle;
+.nav-icon {
+    display: none; 
+    width: 24px; 
+    height: 24px;
+    margin-right: 8px; 
 }
 
-header nav {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    header nav ul {
-        flex-direction: column;
-        gap: 10px;
+@media (max-width: 1200px) { 
+    .header__slogan {
+        display: none;
     }
-    header {
-        padding: 10px;
+}
+
+@media (max-width: 900px) { 
+    .header__nav-list a {
+        padding: 8px 12px; 
+    }
+    .nav-text {
+        display: none; 
+    }
+    .nav-icon {
+        display: inline-block; 
+        margin-right: 0; 
+    }
+    .header__nav-list {
+        gap: 18px; 
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        height: auto;
+        border-radius: 12px;
+    }
+    .header__bigfoot {
+        display: none; 
+    }
+    .header__logo-title {
+        margin-left: 10px; 
+    }
+    .header__nav-list {
+        margin-right: 10px; 
     }
 }
 
@@ -74,20 +143,34 @@ nav a:hover {
 }
 
 footer {
-    background: #17b458; /* vert principal */
+    background: #17b458; 
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    position: relative;
+    padding: 24px 0 12px 0;
+    font-size: 1rem;
+    position: fixed;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 100%;
-    box-shadow: 0 2px 8px rgba(23,180,88,0.08);
+    width: 100vw;
+    z-index: 10;
+    margin-top: auto; 
 }
 
-footer ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.footer__link {
+    color: #eafaf1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+    background: #2ebd6a;
+    color: #174c2b;
 }
 
 .container {
@@ -177,8 +260,6 @@ footer ul {
     }
 }
 
-/* Ajout pour le formulaire du bilan carbone */
-
 .bilan-section {
     background: #f6fff8;
     border-radius: 16px;
@@ -264,7 +345,6 @@ footer ul {
     min-height: 24px;
 }
 
-/* Responsive pour le formulaire */
 @media (max-width: 600px) {
     .bilan-section {
         padding: 12px 4vw 10px 4vw;
@@ -320,7 +400,6 @@ footer ul {
     padding-top:120px
 }
 
-/* Lignes de progression entre les étapes */
 .progress-line {
     position: absolute;
     top: calc(35% + 80px);
@@ -331,86 +410,76 @@ footer ul {
     border-radius: 2px;
 }
 
-/* Ligne 1 - entre étape 1 et 2 */
 .progress-line-1 {
     left: 9.5%;
     width: 15%;
 }
 
-/* Ligne 2 - entre étape 2 et 3 */
 .progress-line-2 {
     left: 30%;
     width: 15%;
 }
 
-/* Ligne 3 - entre étape 3 et 4 */
 .progress-line-3 {
     left: 50%;
     width: 15%;
 }
 
-/* Ligne 4 - entre étape 4 et 5 */
 .progress-line-4 {
     left: 70%;
     width: 15%;
 }
 
-/* Couleurs des lignes selon l'étape active - toutes en vert */
-
-/* Quand sur étape 2 (Housing) - ligne 1 colorée */
 .step-2-active .progress-line-1 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 
-/* Quand sur étape 3 (Food) - lignes 1 et 2 colorées */
 .step-3-active .progress-line-1 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 .step-3-active .progress-line-2 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 
-/* Quand sur étape 4 (Buy) - lignes 1, 2 et 3 colorées */
 .step-4-active .progress-line-1 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 .step-4-active .progress-line-2 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 .step-4-active .progress-line-3 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 
-/* Quand sur étape 5 (Waste) - toutes les lignes colorées */
 .step-5-active .progress-line-1 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 .step-5-active .progress-line-2 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 .step-5-active .progress-line-3 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
 .step-5-active .progress-line-4 {
-    background: #2ebd6a; /* Vert - couleur transport */
+    background: #2ebd6a; 
     box-shadow: 0 0 8px rgba(46, 189, 106, 0.4);
     height: 5px;
 }
@@ -503,12 +572,13 @@ footer ul {
     box-shadow: 0 2px 12px rgba(111, 207, 151, 0.2);
 }
 .step-label {
-    font-size: 15px;
-    color: #444;
-    margin-top: 2px;
+    font-family: 'Georgia', serif; /* Police plus stylée */
+    font-size: 1.1rem; /* Taille de police légèrement augmentée */
+    font-weight: bold; /* En gras pour un aspect de titre */
+    color: #333; /* Couleur de texte foncée pour une bonne lisibilité */
+    margin-top: 8px; /* Espace au-dessus du label */
     text-align: center;
-    text-transform: lowercase;
-    transition: all 0.3s ease;
+    text-transform: capitalize; /* Met la première lettre de chaque mot en majuscule */
 }
 .step.completed .step-label {
     color: #219653;
@@ -701,11 +771,11 @@ footer ul {
         padding: 18px 6vw 18px 6vw;
     }
 }
+/* --- Footer --- */
 .footer {
     background: #1e7c4a;
     color: #eafaf1;
     text-align: center;
-    margin-top: 60px;
     padding: 24px 0 12px 0;
     font-size: 1rem;
     position: fixed;
@@ -714,16 +784,9 @@ footer ul {
     bottom: 0;
     width: 100vw;
     z-index: 10;
+    margin-top: auto; /* Push footer to bottom if content is short */
 }
-.footer__nav-list {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.footer__nav-list a {
+.footer__link {
     color: #eafaf1;
     text-decoration: none;
     font-weight: 600;
@@ -732,7 +795,9 @@ footer ul {
     border-radius: 8px;
     transition: background 0.2s, color 0.2s;
 }
-.footer__nav-list a:hover, .footer__nav-list a:focus {
+
+.footer__link:hover,
+.footer__link:focus {
     background: #2ebd6a;
     color: #174c2b;
 }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilan Carbone</title>
+    <title>Carbon Footprint</title>
     <link rel="stylesheet" href="../css/style-bilan.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -13,8 +13,10 @@
 <body>
     <header class="header">
         <div class="header__logo-title">
-            <img src="../img/foot.png" alt="Bigfoot Logo" class="header__logo">
-            <span class="header__bigfoot">BIGFOOT</span>
+            <a href="index.html">
+                <img src="../img/foot.png" alt="Bigfoot Logo" class="header__logo">
+            </a>
+            <a href="index.html"><span class="header__bigfoot">BIGFOOT</span></a>
             <span class="header__slogan">The New Footprint Calculator</span>
         </div>
         <nav class="header__nav">
@@ -40,7 +42,7 @@
             </ul>
         </nav>
     </header>
-    <!-- Barre de progression étapes bilan carbone -->
+    <!-- Carbon footprint steps progress bar -->
     <div class="steps-bar">
         <div class="step completed">
             <img src="../img/5steps/car.png" alt="Transport">
@@ -48,11 +50,11 @@
         </div>
         <div class="step active">
             <img src="../img/5steps/maison.png" alt="Housing">
-            <div class="step-label">housing</div>
+            <div class="step-label">Housing</div>
         </div>
         <div class="step">
             <img src="../img/5steps/food.png" alt="Food">
-            <div class="step-label">food</div>
+            <div class="step-label">Food</div>
         </div>
         <div class="step">
             <img src="../img/5steps/buy.png" alt="Buy">
@@ -62,258 +64,252 @@
             <img src="../img/5steps/recycle.png" alt="Waste and recycle">
             <div class="step-label">Waste and recycle</div>
         </div>
-        <!-- Lignes de progression entre les étapes -->
+        <!-- Progress lines between steps -->
         <div class="progress-line progress-line-1"></div>
         <div class="progress-line progress-line-2"></div>
         <div class="progress-line progress-line-3"></div>
         <div class="progress-line progress-line-4"></div>
     </div>
 
-    <!-- Formulaire Transport (étape 1) -->
+    <!-- Transport Form (step 1) -->
     <div class="form-container transport-form-container" style="display:block;">
         <h2 class="form-title">1. Transport</h2>
         <form class="main-form transport-form">
             <div class="form-group">
-                <label for="vehicle-type">Type de véhicule personnel</label>
+                <label for="vehicle-type">Personal vehicle type</label>
                 <select id="vehicle-type" name="vehicle-type">
-                    <option value="">Sélectionner</option>
-                    <option value="essence">Essence</option>
+                    <option value="">Select</option>
+                    <option value="essence">Gasoline</option>
                     <option value="diesel">Diesel</option>
-                    <option value="hybride">Hybride</option>
-                    <option value="electrique">Électrique</option>
+                    <option value="hybride">Hybrid</option>
+                    <option value="electrique">Electric</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="conso-moyenne">Consommation moyenne (litres/100 km ou kWh/100 km)</label>
+                <label for="conso-moyenne">Average consumption (liters/100 km or kWh/100 km)</label>
                 <input type="number" id="conso-moyenne" name="conso-moyenne" placeholder="">
             </div>
             <div class="form-group">
-                <label for="km-an">Nombre de kilomètres parcourus par an</label>
+                <label for="km-an">Number of kilometers traveled per year</label>
                 <input type="number" id="km-an" name="km-an" placeholder="">
             </div>
             <div class="form-group">
-                <label for="transports-communs">Utilisation des transports en commun</label>
+                <label for="transports-communs">Use of public transport</label>
                 <select id="transports-communs" name="transports-communs">
-                    <option value="">Sélectionner</option>
+                    <option value="">Select</option>
                     <option value="bus">Bus</option>
-                    <option value="metro">Métro</option>
+                    <option value="metro">Metro</option>
                     <option value="train">Train</option>
-                    <option value="avion">Avion</option>
-                    <option value="aucun">Aucun</option>
+                    <option value="avion">Plane</option>
+                    <option value="aucun">None</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="trajets-avion">Nombre de trajets en avion (distance et fréquence)</label>
-                <input type="text" id="trajets-avion" name="trajets-avion" placeholder="Ex: 2x Paris-Madrid/an">
+                <label for="trajets-avion">Number of plane trips (distance and frequency)</label>
+                <input type="text" id="trajets-avion" name="trajets-avion" placeholder="Ex: 2x Paris-Madrid/year">
             </div>
             <div class="form-group">
-                <label for="covoiturage">Covoiturage</label>
+                <label for="covoiturage">Carpooling</label>
                 <select id="covoiturage" name="covoiturage">
-                    <option value="">Sélectionner</option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="">Select</option>
+                    <option value="oui">Yes</option>
+                    <option value="non">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="carburant">Type de carburant utilisé</label>
+                <label for="carburant">Type of fuel used</label>
                 <select id="carburant" name="carburant">
-                    <option value="">Sélectionner</option>
-                    <option value="essence">Essence</option>
+                    <option value="">Select</option>
+                    <option value="essence">Gasoline</option>
                     <option value="diesel">Diesel</option>
-                    <option value="gpl">GPL</option>
-                    <option value="electrique">Électrique</option>
-                    <option value="autre">Autre</option>
+                    <option value="gpl">LPG</option>
+                    <option value="electrique">Electric</option>
+                    <option value="autre">Other</option>
                 </select>
             </div>
             <div class="form-buttons">
-                <button type="button" class="btn-next-transport">Suivant</button>
+                <button type="button" class="btn-next-transport">Next</button>
             </div>
         </form>
     </div>
 
-    <!-- Formulaire Logement (étape 2) -->
+    <!-- Housing Form (step 2) -->
     <div class="form-container housing-form-container" style="display:none;">
-        <h2 class="form-title">2. Logement</h2>
+        <h2 class="form-title">2. Housing</h2>
         <form class="main-form housing-form">
             <div class="form-group">
-                <label for="housing-type">Type de logement</label>
+                <label for="housing-type">Type of housing</label>
                 <select id="housing-type" name="housing-type">
-                    <option value="">Sélectionner</option>
-                    <option value="maison">Maison</option>
-                    <option value="appartement">Appartement</option>
+                    <option value="">Select</option>
+                    <option value="maison">House</option>
+                    <option value="appartement">Apartment</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="surface">Taille du logement (m²)</label>
+                <label for="surface">Size of housing (m²)</label>
                 <input type="number" id="surface" name="surface" placeholder="">
             </div>
             <div class="form-group">
-                <label for="habitants">Nombre d’habitants dans le foyer</label>
+                <label for="habitants">Number of inhabitants in the household</label>
                 <input type="number" id="habitants" name="habitants" placeholder="">
             </div>
             <div class="form-group">
-                <label for="energy-source">Source d’énergie</label>
+                <label for="energy-source">Energy source</label>
                 <select id="energy-source" name="energy-source">
-                    <option value="">Sélectionner</option>
-                    <option value="electricite">Électricité</option>
-                    <option value="gaz">Gaz</option>
-                    <option value="fioul">Fioul</option>
-                    <option value="bois">Bois</option>
+                    <option value="">Select</option>
+                    <option value="electricite">Electricity</option>
+                    <option value="gaz">Gas</option>
+                    <option value="fioul">Oil</option>
+                    <option value="bois">Wood</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="annual-consumption">Consommation annuelle d’énergie (kWh ou litres)</label>
+                <label for="annual-consumption">Annual energy consumption (kWh or liters)</label>
                 <input type="number" id="annual-consumption" name="annual-consumption" placeholder="">
             </div>
             <div class="form-group">
-                <label for="thermic-isolation">Isolation thermique du logement</label>
+                <label for="thermic-isolation">Thermal insulation of housing</label>
                 <input type="text" id="thermic-isolation" name="thermic-isolation" placeholder="">
             </div>
             <div class="form-group">
-                <label for="renewable-energy">Utilisation d’énergies renouvelables</label>
+                <label for="renewable-energy">Use of renewable energy</label>
                 <input type="text" id="renewable-energy" name="renewable-energy"
-                    placeholder="Ex: panneaux solaires, pompe à chaleur...">
+                    placeholder="Ex: solar panels, heat pump...">
             </div>
             <div class="form-buttons">
-                <button type="button" class="btn-prev-housing">Précédent</button>
-                <button type="button" class="btn-next-housing">Suivant</button>
+                <button type="button" class="btn-prev-housing">Previous</button>
+                <button type="button" class="btn-next-housing">Next</button>
             </div>
         </form>
     </div>
 
-    <!-- Formulaire Alimentation (étape 3) -->
+    <!-- Food Form (step 3) -->
     <div class="form-container food-form-container" style="display:none;">
-        <h2 class="form-title">3. Alimentation</h2>
+        <h2 class="form-title">3. Food</h2>
         <form class="main-form food-form">
             <div class="form-group">
-                <label for="regime">Type de régime alimentaire</label>
+                <label for="regime">Type of diet</label>
                 <select id="regime" name="regime">
-                    <option value="">Sélectionner</option>
+                    <option value="">Select</option>
                     <option value="omnivore">Omnivore</option>
-                    <option value="flexitarien">Flexitarien</option>
-                    <option value="vegetarien">Végétarien</option>
-                    <option value="vegetalien">Végétalien</option>
+                    <option value="flexitarien">Flexitarian</option>
+                    <option value="vegetarien">Vegetarian</option>
+                    <option value="vegetalien">Vegan</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="viande-rouge">Omnivore : fort en viande rouge ?</label>
+                <label for="viande-rouge">Omnivore: high in red meat?</label>
                 <select id="viande-rouge" name="viande-rouge">
-                    <option value="">Sélectionner</option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="">Select</option>
+                    <option value="oui">Yes</option>
+                    <option value="non">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="produits-transformes">Consommation de produits transformés</label>
+                <label for="produits-transformes">Consumption of processed foods</label>
                 <select id="produits-transformes" name="produits-transformes">
-                    <option value="">Sélectionner</option>
-                    <option value="faible">Faible</option>
-                    <option value="moderee">Modérée</option>
-                    <option value="elevee">Élevée</option>
+                    <option value="">Select</option>
+                    <option value="faible">Low</option>
+                    <option value="moderee">Moderate</option>
+                    <option value="elevee">High</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="produits-locaux">Consommation de produits locaux/saisonniers</label>
+                <label for="produits-locaux">Consumption of local/seasonal products</label>
                 <select id="produits-locaux" name="produits-locaux">
-                    <option value="">Sélectionner</option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="">Select</option>
+                    <option value="oui">Yes</option>
+                    <option value="non">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="repas-viande">Fréquence des repas à base de viande ou de poisson</label>
-                <input type="text" id="repas-viande" name="repas-viande" placeholder="Ex: 3 fois/semaine">
+                <label for="repas-viande">Frequency of meat or fish meals</label>
+                <input type="text" id="repas-viande" name="repas-viande" placeholder="Ex: 3 times/week">
             </div>
             <div class="form-group">
-                <label for="gaspillage">Gaspillage alimentaire</label>
+                <label for="gaspillage">Food waste</label>
                 <select id="gaspillage" name="gaspillage">
-                    <option value="">Sélectionner</option>
-                    <option value="faible">Faible</option>
-                    <option value="modere">Modéré</option>
-                    <option value="eleve">Élevé</option>
+                    <option value="">Select</option>
+                    <option value="faible">Low</option>
+                    <option value="modere">Moderate</option>
+                    <option value="eleve">High</option>
                 </select>
             </div>
             <div class="form-buttons">
-                <button type="button" class="btn-prev-food">Précédent</button>
-                <button type="button" class="btn-next-food">Suivant</button>
+                <button type="button" class="btn-prev-food">Previous</button>
+                <button type="button" class="btn-next-food">Next</button>
             </div>
         </form>
     </div>
 
-    <!-- Formulaire Consommation et biens matériels (étape 4) -->
+    <!-- Consumption and material goods Form (step 4) -->
     <div class="form-container conso-form-container" style="display:none;">
-        <h2 class="form-title">4. Consommation et biens matériels</h2>
+        <h2 class="form-title">4. Consumption and material goods</h2>
         <form class="main-form conso-form">
             <div class="form-group">
-                <label for="vetements">Achat de vêtements neufs (quantité, fréquence, marques écoresponsables ou
-                    non)</label>
+                <label for="vetements">Purchase of new clothes (quantity, frequency, eco-responsible brands or not)</label>
                 <input type="text" id="vetements" name="vetements" placeholder="">
             </div>
             <div class="form-group">
-                <label for="electronique">Électronique et électroménager (type, fréquence de renouvellement)</label>
+                <label for="electronique">Electronics and household appliances (type, replacement frequency)</label>
                 <input type="text" id="electronique" name="electronique" placeholder="">
             </div>
             <div class="form-group">
-                <label for="meubles">Meubles et autres biens durables</label>
+                <label for="meubles">Furniture and other durable goods</label>
                 <input type="text" id="meubles" name="meubles" placeholder="">
             </div>
             <div class="form-group">
-                <label for="origine-produit">Origine et cycle de vie des produits (neufs, recyclés,
-                    reconditionnés)</label>
+                <label for="origine-produit">Origin and life cycle of products (new, recycled, reconditioned)</label>
                 <input type="text" id="origine-produit" name="origine-produit" placeholder="">
             </div>
             <div class="form-group">
-                <label for="mode-achat">Mode d’achat (local / en ligne, livraison express ou standard)</label>
+                <label for="mode-achat">Purchasing method (local / online, express or standard delivery)</label>
                 <input type="text" id="mode-achat" name="mode-achat" placeholder="">
             </div>
             <div class="form-buttons">
-                <button type="button" class="btn-prev-conso">Précédent</button>
-                <button type="button" class="btn-next-conso">Suivant</button>
+                <button type="button" class="btn-prev-conso">Previous</button>
+                <button type="button" class="btn-next-conso">Next</button>
             </div>
         </form>
     </div>
 
-    <!-- Formulaire Déchets et recyclage (étape 5) -->
+    <!-- Waste and recycling Form (step 5) -->
     <div class="form-container dechets-form-container" style="display:none;">
-        <h2 class="form-title">5. Déchets et recyclage</h2>
+        <h2 class="form-title">5. Waste and recycling</h2>
         <form class="main-form dechets-form">
             <div class="form-group">
-                <label for="quantite-dechets">Quantité de déchets générés</label>
+                <label for="quantite-dechets">Quantity of waste generated</label>
                 <input type="text" id="quantite-dechets" name="quantite-dechets" placeholder="">
             </div>
             <div class="form-group">
-                <label for="tri">Tri sélectif / recyclage</label>
+                <label for="tri">Selective sorting / recycling</label>
                 <select id="tri" name="tri">
-                    <option value="">Sélectionner</option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="">Select</option>
+                    <option value="oui">Yes</option>
+                    <option value="non">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="compost">Compostage des biodéchets</label>
+                <label for="compost">Composting of biowaste</label>
                 <select id="compost" name="compost">
-                    <option value="">Sélectionner</option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="">Select</option>
+                    <option value="oui">Yes</option>
+                    <option value="non">No</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="reutilisable">Utilisation de produits réutilisables / jetables</label>
+                <label for="reutilisable">Use of reusable / disposable products</label>
                 <input type="text" id="reutilisable" name="reutilisable" placeholder="">
             </div>
             <div class="form-buttons">
-                <button type="button" class="btn-prev-dechets">Précédent</button>
-                <button type="submit" class="btn-next-dechets">Terminer</button>
+                <button type="button" class="btn-prev-dechets">Previous</button>
+                <button type="submit" class="btn-next-dechets">Finish</button>
             </div>
         </form>
     </div>
 
     <footer class="footer">
-        <nav>
-            <ul class="footer__nav-list">
-                <li><a href="about.html">About us</a></li>
-            </ul>
-        </nav>
+        <a href="about.html" class="footer__link">About us</a>
     </footer>
 
 </body>
