@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style-result.css">
 </head>
+
 <body>
     <header class="header">
         <div class="header__logo-title">
@@ -14,21 +16,46 @@
             <span class="header__bigfoot">BIGFOOT</span>
             <span class="header__slogan">The New Footprint Calculator</span>
         </div>
-        <nav>
+        <nav class="header__nav">
             <ul class="header__nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bilan.html">Calculate</a></li>
-                <li><a href="result.html" class="active">Results</a></li>
-                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="index.html">
+                        <img src="../img/home-icon.png" alt="Home" class="nav-icon home-icon">
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bilan.html">
+                        <img src="../img/calculate-icon.png" alt="Calculate" class="nav-icon calculate-icon">
+                        <span class="nav-text">Calculate</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <img src="../img/about-icon.png" alt="About" class="nav-icon about-icon">
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div id="controls" style="margin-bottom: 2em;"></div>
+        <div id="controls"></div>
         <div id="graph"></div>
+        <div id="analysis-section">
+            <h2 id="analysis-title">Analyse de votre empreinte carbone</h2>
+            <p id="analysis-text"></p>
+        </div>
     </main>
-
+    <footer class="footer">
+        <nav>
+            <ul class="footer__nav-list">
+                <li><a href="about.html">About us</a></li>
+            </ul>
+        </nav>
+    </footer>
     <script src="../js/result.js"></script>
 </body>
+
 </html>

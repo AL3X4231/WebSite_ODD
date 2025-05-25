@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <script src="../js/main.js"></script>
+
 <body>
     <header class="header">
         <div class="header__logo-title">
@@ -15,14 +17,30 @@
             <span class="header__bigfoot">BIGFOOT</span>
             <span class="header__slogan">The New Footprint Calculator</span>
         </div>
-        <nav>
+        <nav class="header__nav">
             <ul class="header__nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bilan.html">Calculate</a></li>
-                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="index.html">
+                        <img src="../img/home-icon.png" alt="Home" class="nav-icon home-icon">
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bilan.html">
+                        <img src="../img/calculate-icon.png" alt="Calculate" class="nav-icon calculate-icon">
+                        <span class="nav-text">Calculate</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <img src="../img/about-icon.png" alt="About" class="nav-icon about-icon">
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-    </header>    <!-- Barre de progression étapes bilan carbone -->
+    </header>
+    <!-- Barre de progression étapes bilan carbone -->
     <div class="steps-bar">
         <div class="step completed">
             <img src="../img/5steps/car.png" alt="Transport">
@@ -153,7 +171,8 @@
             </div>
             <div class="form-group">
                 <label for="renewable-energy">Utilisation d’énergies renouvelables</label>
-                <input type="text" id="renewable-energy" name="renewable-energy" placeholder="Ex: panneaux solaires, pompe à chaleur...">
+                <input type="text" id="renewable-energy" name="renewable-energy"
+                    placeholder="Ex: panneaux solaires, pompe à chaleur...">
             </div>
             <div class="form-buttons">
                 <button type="button" class="btn-prev-housing">Précédent</button>
@@ -226,7 +245,8 @@
         <h2 class="form-title">4. Consommation et biens matériels</h2>
         <form class="main-form conso-form">
             <div class="form-group">
-                <label for="vetements">Achat de vêtements neufs (quantité, fréquence, marques écoresponsables ou non)</label>
+                <label for="vetements">Achat de vêtements neufs (quantité, fréquence, marques écoresponsables ou
+                    non)</label>
                 <input type="text" id="vetements" name="vetements" placeholder="">
             </div>
             <div class="form-group">
@@ -238,7 +258,8 @@
                 <input type="text" id="meubles" name="meubles" placeholder="">
             </div>
             <div class="form-group">
-                <label for="origine-produit">Origine et cycle de vie des produits (neufs, recyclés, reconditionnés)</label>
+                <label for="origine-produit">Origine et cycle de vie des produits (neufs, recyclés,
+                    reconditionnés)</label>
                 <input type="text" id="origine-produit" name="origine-produit" placeholder="">
             </div>
             <div class="form-group">
@@ -287,13 +308,14 @@
         </form>
     </div>
 
-    <footer>
+    <footer class="footer">
         <nav>
-            <ul>
-                <li><a href="about.html">À propos</a></li>
+            <ul class="footer__nav-list">
+                <li><a href="about.html">About us</a></li>
             </ul>
         </nav>
     </footer>
 
 </body>
+
 </html>

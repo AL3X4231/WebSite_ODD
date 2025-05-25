@@ -78,6 +78,14 @@ body {
     color: #174c2b;
 }
 
+/* Styles pour les icônes de navigation */
+.nav-icon {
+    display: none; /* Cachées par défaut */
+    width: 24px; /* Taille des icônes */
+    height: 24px;
+    margin-right: 8px; /* Espace entre l'icône et le texte (si affiché) */
+}
+
 /* --- Add top padding to main to avoid overlap with fixed header --- */
 main {
     padding-top: 110px;
@@ -198,6 +206,43 @@ main {
         padding-top: 100px;
     }
 }
+
+/* Styles responsives pour la barre de navigation */
+@media (max-width: 1200px) { /* Seuil pour cacher le slogan */
+    .header__slogan {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) { /* Seuil pour remplacer le texte par des icônes */
+    .header__nav-list a {
+        padding: 8px 12px; /* Réduire le padding pour les icônes */
+    }
+    .nav-text {
+        display: none; /* Cacher le texte */
+    }
+    .nav-icon {
+        display: inline-block; /* Afficher les icônes */
+        margin-right: 0; /* Pas de marge si seul l'icône est visible */
+    }
+    .header__nav-list {
+        gap: 18px; /* Réduire l'espace entre les icônes */
+    }
+}
+
+@media (max-width: 700px) {
+    /* ... (vos styles existants pour .intro, .header, main) ... */
+    .header__bigfoot {
+        display: none; /* Cacher BIGFOOT sur les très petits écrans */
+    }
+    .header__logo-title {
+        margin-left: 10px; /* Ajuster la marge si BIGFOOT est caché */
+    }
+    .header__nav-list {
+        margin-right: 10px; /* Ajuster la marge pour la nav */
+    }
+}
+
 
 /* --- Graphique Bilan Carbone --- */
 /* Beautify the background behind the graphique-bilan section */
@@ -365,12 +410,118 @@ main {
     transition: color 0.2s;
 }
 
-/* Responsive */
+/* Responsive adjustments for #graphique-bilan section */
 @media (max-width: 900px) {
-    .bar-chart-group { gap: 10px; }
-    .bar-group { min-width: 40px; }
-    .bar-group-bars .bar { width: 28px; font-size: 0.8rem; }
-    .graph-img { height: 40px; }
+    #graphique-bilan {
+        padding: 24px 12px 18px 12px; /* Reduced padding */
+        margin-top: 30px;
+    }
+    #graphique-bilan::before { /* Adjust decorative element */
+        width: 200px;
+        height: 200px;
+        top: -40px;
+        left: -40px;
+    }
+    .graph-header {
+        flex-direction: column; /* Stack header elements */
+        align-items: center;
+        gap: 10px; /* Add gap when stacked */
+        margin-bottom: 20px; /* Increased margin-bottom */
+    }
+    .graph-header h2 {
+        font-size: 1.15rem; /* Slightly smaller title */
+        text-align: center; /* Center title when stacked */
+    }
+    .graph-box {
+        padding: 12px 20px; /* Smaller padding */
+        min-width: auto; /* Allow it to shrink */
+        width: 100%; /* Take full width when stacked */
+        max-width: 300px; /* Max width for the box */
+        margin-left: 0; /* Remove margin when stacked */
+    }
+    .graph-text {
+        font-size: 1.1rem; /* Smaller text in box */
+    }
+    .graph-img { /* Kept from original media query */
+        height: 40px;
+    }
+
+    .bar-chart-group {
+        gap: 8px; /* Slightly reduced gap */
+    }
+    .bar-group {
+        min-width: 35px; /* Further reduce min-width */
+    }
+    .bar-group-bars .bar {
+        width: 25px; /* Slightly smaller bars */
+        font-size: 0.75rem; /* Smaller font in bars */
+    }
+    .bar-group-label {
+        font-size: 0.85rem; /* Smaller group labels */
+    }
+    .bar-label {
+        font-size: 0.7rem; /* Smaller labels on bars */
+        padding-bottom: 6px;
+    }
+    .bar-desc {
+        font-size: 1rem; /* Adjust description font size */
+        margin-top: 15px;
+        min-height: 20px; /* Adjust min-height */
+    }
+}
+
+@media (max-width: 600px) {
+    #graphique-bilan {
+        padding: 18px 8px 12px 8px; /* Even smaller padding */
+        border-radius: 18px; /* Smaller radius */
+        margin-top: 20px;
+    }
+    #graphique-bilan::before { /* Further adjust decorative element */
+        width: 150px;
+        height: 150px;
+        top: -30px;
+        left: -30px;
+    }
+    .graph-header h2 {
+        font-size: 1.05rem;
+    }
+    .graph-box {
+        padding: 10px 15px;
+    }
+    .graph-text {
+        font-size: 1rem;
+    }
+
+    .bar-chart-group {
+        flex-direction: column; /* Stack bar groups vertically */
+        align-items: center; /* Center them when stacked */
+        gap: 25px; /* Gap between stacked groups */
+    }
+    .bar-group {
+        min-width: 200px; /* Allow groups to take more width when stacked */
+        width: 90%; /* Control width of stacked groups */
+        max-width: 320px; /* Max width for stacked groups */
+    }
+    .bar-group-bars {
+        justify-content: center; /* Center bars within their group */
+        gap: 3px; /* Gap between bars in a group */
+    }
+    .bar-group-bars .bar {
+        width: 30px; /* Can be a bit wider if groups are stacked */
+        font-size: 0.7rem;
+    }
+    .bar-group-label {
+        font-size: 0.9rem; /* Label for the group (e.g., "Je me déplace") */
+        margin-top: 10px;
+    }
+    .bar-label { /* Individual bar labels (e.g., "Voiture 2110 kg") */
+        font-size: 0.65rem;
+        padding-bottom: 5px;
+    }
+    .bar-desc {
+        font-size: 0.9rem;
+        margin-top: 12px;
+    }
 }
 
 /* --- Main columns layout --- */

@@ -701,3 +701,38 @@ footer ul {
         padding: 18px 6vw 18px 6vw;
     }
 }
+.footer {
+    background: #1e7c4a;
+    color: #eafaf1;
+    text-align: center;
+    margin-top: 60px;
+    padding: 24px 0 12px 0;
+    font-size: 1rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: 10;
+}
+.footer__nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer__nav-list a {
+    color: #eafaf1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.footer__nav-list a:hover, .footer__nav-list a:focus {
+    background: #2ebd6a;
+    color: #174c2b;
+}
