@@ -104,9 +104,12 @@
                     <option value="aucun">None</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="trajets-avion">Number of plane trips (distance and frequency)</label>
-                <input type="text" id="trajets-avion" name="trajets-avion" placeholder="Ex: 2x Paris-Madrid/year">
+            <div class="form-group" id="flight-trips-container">
+                <label>Number of plane trips</label>
+                <button type="button" id="add-flight-btn" class="btn-add">+</button>
+                <div id="flight-inputs-container">
+                    <!-- Flight inputs will be added here -->
+                </div>
             </div>
             <div class="form-group">
                 <label for="covoiturage">Carpooling</label>
@@ -114,17 +117,6 @@
                     <option value="">Select</option>
                     <option value="oui">Yes</option>
                     <option value="non">No</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="carburant">Type of fuel used</label>
-                <select id="carburant" name="carburant">
-                    <option value="">Select</option>
-                    <option value="essence">Gasoline</option>
-                    <option value="diesel">Diesel</option>
-                    <option value="gpl">LPG</option>
-                    <option value="electrique">Electric</option>
-                    <option value="autre">Other</option>
                 </select>
             </div>
             <div class="form-buttons">
