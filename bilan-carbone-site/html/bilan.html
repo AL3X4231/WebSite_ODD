@@ -7,8 +7,9 @@
     <title>Carbon Footprint</title>
     <link rel="stylesheet" href="../css/style-bilan.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+    <script src="../js/apicall.js"></script>
 </head>
-<script src="../js/main.js"></script>
 
 <body>
     <header class="header">
@@ -64,7 +65,7 @@
             <img src="../img/5steps/recycle.png" alt="Waste and recycle">
             <div class="step-label">Waste and recycle</div>
         </div>
-        <!-- Progress lines between steps -->
+        
         <div class="progress-line progress-line-1"></div>
         <div class="progress-line progress-line-2"></div>
         <div class="progress-line progress-line-3"></div>
@@ -108,7 +109,7 @@
                 <label>Number of plane trips</label>
                 <button type="button" id="add-flight-btn" class="btn-add">+</button>
                 <div id="flight-inputs-container">
-                    <!-- Flight inputs will be added here -->
+                    
                 </div>
             </div>
             <div class="form-group">
@@ -120,7 +121,7 @@
                 </select>
             </div>
             <div class="form-buttons">
-                <button type="button" class="btn-next-transport">Next</button>
+                <button type="button" class="btn-next-transport" onclick="handleTransportSubmit()">Next</button>
             </div>
         </form>
     </div>
@@ -160,17 +161,25 @@
                 <input type="number" id="annual-consumption" name="annual-consumption" placeholder="">
             </div>
             <div class="form-group">
-                <label for="thermic-isolation">Thermal insulation of housing</label>
-                <input type="text" id="thermic-isolation" name="thermic-isolation" placeholder="">
+                <label for="thermic-isolation">Thermal insulation</label>
+                <select id="thermic-isolation" name="thermic-isolation">
+                    <option value="">Select</option>
+                    <option value="good">Good</option>
+                    <option value="average">Average</option>
+                    <option value="poor">Poor</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="renewable-energy">Use of renewable energy</label>
-                <input type="text" id="renewable-energy" name="renewable-energy"
-                    placeholder="Ex: solar panels, heat pump...">
+                <label for="renewable-energy">Use of renewable energy?</label>
+                <select id="renewable-energy" name="renewable-energy">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
             </div>
-            <div class="form-buttons">
+       <div class="form-buttons">
                 <button type="button" class="btn-prev-housing">Previous</button>
-                <button type="button" class="btn-next-housing">Next</button>
+                <button type="button" class="btn-next-housing" onclick="handleHousingSubmit()">Next</button>
             </div>
         </form>
     </div>
@@ -229,76 +238,121 @@
             </div>
             <div class="form-buttons">
                 <button type="button" class="btn-prev-food">Previous</button>
-                <button type="button" class="btn-next-food">Next</button>
+                <button type="button" class="btn-next-food" onclick=" handleFoodSubmit()">Next</button>
             </div>
         </form>
     </div>
 
     <!-- Consumption and material goods Form (step 4) -->
-    <div class="form-container conso-form-container" style="display:none;">
-        <h2 class="form-title">4. Consumption and material goods</h2>
-        <form class="main-form conso-form">
-            <div class="form-group">
-                <label for="vetements">Purchase of new clothes (quantity, frequency, eco-responsible brands or not)</label>
-                <input type="text" id="vetements" name="vetements" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="electronique">Electronics and household appliances (type, replacement frequency)</label>
-                <input type="text" id="electronique" name="electronique" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="meubles">Furniture and other durable goods</label>
-                <input type="text" id="meubles" name="meubles" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="origine-produit">Origin and life cycle of products (new, recycled, reconditioned)</label>
-                <input type="text" id="origine-produit" name="origine-produit" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="mode-achat">Purchasing method (local / online, express or standard delivery)</label>
-                <input type="text" id="mode-achat" name="mode-achat" placeholder="">
-            </div>
-            <div class="form-buttons">
-                <button type="button" class="btn-prev-conso">Previous</button>
-                <button type="button" class="btn-next-conso">Next</button>
-            </div>
-        </form>
-    </div>
+<div class="form-container conso-form-container" style="display:none;">
+    <h2 class="form-title">4. Consumption and Material Goods</h2>
+    <form class="main-form conso-form">
+        <div class="form-group">
+            <label for="achat-vetements">Clothing purchases per year</label>
+            <select id="achat-vetements" name="achat-vetements">
+                <option value="">Select</option>
+                <option value="peu">Less than 10 items</option>
+                <option value="moyen">10–30 items</option>
+                <option value="beaucoup">More than 30 items</option>
+            </select>
+        </div>
 
-    <!-- Waste and recycling Form (step 5) -->
-    <div class="form-container dechets-form-container" style="display:none;">
-        <h2 class="form-title">5. Waste and recycling</h2>
-        <form class="main-form dechets-form">
-            <div class="form-group">
-                <label for="quantite-dechets">Quantity of waste generated</label>
-                <input type="text" id="quantite-dechets" name="quantite-dechets" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="tri">Selective sorting / recycling</label>
-                <select id="tri" name="tri">
-                    <option value="">Select</option>
-                    <option value="oui">Yes</option>
-                    <option value="non">No</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="compost">Composting of biowaste</label>
-                <select id="compost" name="compost">
-                    <option value="">Select</option>
-                    <option value="oui">Yes</option>
-                    <option value="non">No</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="reutilisable">Use of reusable / disposable products</label>
-                <input type="text" id="reutilisable" name="reutilisable" placeholder="">
-            </div>
-            <div class="form-buttons">
-                <button type="button" class="btn-prev-dechets">Previous</button>
-                <button type="submit" class="btn-next-dechets">Finish</button>
-            </div>
-        </form>
-    </div>
+        <div class="form-group">
+            <label for="achat-electro">Electronics/appliances frequency</label>
+            <select id="achat-electro" name="achat-electro">
+                <option value="">Select</option>
+                <option value="rare">Rarely (once every 5+ years)</option>
+                <option value="normal">Every 2–3 years</option>
+                <option value="frequent">Every year</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="achat-meubles">Furniture and durable goods</label>
+            <select id="achat-meubles" name="achat-meubles">
+                <option value="">Select</option>
+                <option value="peu">Occasionally</option>
+                <option value="moyen">Once a year</option>
+                <option value="beaucoup">Several per year</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="origine-produits">Product origin and type</label>
+            <select id="origine-produits" name="origine-produits">
+                <option value="">Select</option>
+                <option value="neuf">Mostly new</option>
+                <option value="reconditionne">Some refurbished/recycled</option>
+                <option value="ecoresponsable">Mostly eco-responsible</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="achat-mode">Buying method</label>
+            <select id="achat-mode" name="achat-mode">
+                <option value="">Select</option>
+                <option value="local">Local shops</option>
+                <option value="enligne-standard">Online (standard delivery)</option>
+                <option value="enligne-express">Online (express delivery)</option>
+            </select>
+        </div>
+
+        <div class="form-buttons">
+            <button type="button" class="btn-prev-conso">Previous</button>
+            <button type="button" class="btn-next-conso" onclick="handleConsoSubmit()">Next</button>
+        </div>
+    </form>
+</div>
+
+
+<!-- Waste and recycling Form (step 5) -->
+<div class="form-container dechets-form-container" style="display:none;">
+    <h2 class="form-title">5. Waste and Recycling</h2>
+    <form class="main-form dechets-form">
+        <div class="form-group">
+            <label for="quantite-dechets">Household waste produced</label>
+            <select id="quantite-dechets" name="quantite-dechets">
+                <option value="">Select</option>
+                <option value="faible">Less than 300 kg/year</option>
+                <option value="moyenne">300–500 kg/year</option>
+                <option value="elevee">More than 500 kg/year</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tri">Do you sort and recycle?</label>
+            <select id="tri" name="tri">
+                <option value="">Select</option>
+                <option value="oui">Yes</option>
+                <option value="non">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="compost">Do you compost food/organic waste?</label>
+            <select id="compost" name="compost">
+                <option value="">Select</option>
+                <option value="oui">Yes</option>
+                <option value="non">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="usage-produits">Type of products you use</label>
+            <select id="usage-produits" name="usage-produits">
+                <option value="">Select</option>
+                <option value="reutilisable">Mostly reusable</option>
+                <option value="mixte">A mix of reusable and disposable</option>
+                <option value="jetable">Mostly disposable</option>
+            </select>
+        </div>
+
+        <div class="form-buttons">
+            <button type="button" class="btn-prev-dechets">Previous</button>
+            <button type="button" class="btn-next-dechets" onclick="handleWasteSubmit()">Finish</button>
+        </div>
+    </form>
+</div>
 
     <footer class="footer">
         <a href="about.html" class="footer__link">About us</a>

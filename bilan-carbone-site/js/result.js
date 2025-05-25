@@ -1,80 +1,97 @@
-// Variables des pourcentages et leurs noms
+
+const transport = parseFloat(localStorage.getItem("transportFootprint")) || 0;
+const housing = parseFloat(localStorage.getItem("housingFootprint")) || 0;
+const food = parseFloat(localStorage.getItem("foodFootprint")) || 0;
+const consumption = parseFloat(localStorage.getItem("consumptionFootprint")) || 0;
+const waste = parseFloat(localStorage.getItem("wasteFootprint")) || 0;
+
+
+const total = transport + housing + food + consumption + waste || 1; // Avoid division by 0
+
+
 const variables = [
-    { name: 'Transport', value: 12 },
-    { name: 'Housing', value: 30 },
-    { name: 'Food', value: 7 },
-    { name: 'Buy', value: 16 },
-    { name: 'Waste and recycle', value: 2 }
+    { name: 'Transport', value: transport, percent: (transport / total * 100).toFixed(1) },
+    { name: 'Housing', value: housing, percent: (housing / total * 100).toFixed(1) },
+    { name: 'Food', value: food, percent: (food / total * 100).toFixed(1) },
+    { name: 'Buy', value: consumption, percent: (consumption / total * 100).toFixed(1) },
+    { name: 'Waste and recycle', value: waste, percent: (waste / total * 100).toFixed(1) }
 ];
 
-// Trie les variables en ordre décroissant de valeur
 variables.sort((a, b) => b.value - a.value);
+
 
 function renderGraph() {
     const graph = document.getElementById('graph');
     graph.innerHTML = '';
-    const colors = ['#4caf50', '#2196f3', '#ffeb3b', '#f44336', '#9c27b0']; // vert, bleu, jaune, rouge, violet
+
+   
+    const totalSection = document.createElement('div');
+    totalSection.className = 'total-emissions';
+    totalSection.innerHTML = `
+        <h3>Total Carbon Footprint</h3>
+        <p class="total-value">${total.toFixed(1)} kg CO₂/year</p>
+    `;
+    graph.appendChild(totalSection);
+
+    const colors = ['#4caf50', '#2196f3', '#ffeb3b', '#f44336', '#9c27b0'];
+
     variables.forEach((item, idx) => {
         const barContainer = document.createElement('div');
         barContainer.className = 'bar-container';
+
         const label = document.createElement('span');
         label.className = 'bar-label';
-        label.textContent = `${item.name}`;
+        label.textContent = `${item.name}: ${item.value.toFixed(1)} kg CO₂ (${item.percent}%)`;
+
         const bar = document.createElement('div');
         bar.className = 'bar';
-        bar.style.width = item.value + '%';
+        bar.style.width = item.percent + '%';
         bar.style.background = colors[idx % colors.length];
-        bar.textContent = item.value + '%';
+        bar.textContent = `${item.percent}%`;
+
         barContainer.appendChild(label);
         barContainer.appendChild(bar);
         graph.appendChild(barContainer);
     });
 }
 
+
 function generateAnalysis() {
     const analysisTextElement = document.getElementById('analysis-text');
     if (!analysisTextElement) return;
 
-    // Find the category with the highest emission
-    // The 'variables' array is already sorted in descending order by value in result.js
-    const highestEmissionCategory = variables[0];
+    const highest = variables[0];
+    let html = `<p>Your largest source of emissions is "<strong>${highest.name}</strong>" with <strong>${highest.percent}%</strong> of the total (${highest.value.toFixed(1)} kg CO₂/year).</p>`;
 
-    let analysisHTML = '';
-
-    if (highestEmissionCategory) {
-        analysisHTML += `<p>Votre principale source d'émissions provient de la catégorie "<strong>${highestEmissionCategory.name}</strong>" avec <strong>${highestEmissionCategory.value}%</strong> du total. `;
-        switch (highestEmissionCategory.name) {
-            case 'transport':
-                analysisHTML += "Envisagez des alternatives plus écologiques comme le vélo, la marche, les transports en commun, ou le covoiturage. Pour les longues distances, le train est souvent une meilleure option que l'avion ou la voiture individuelle.</p>";
-                break;
-            case 'housing':
-                analysisHTML += "Pensez à améliorer l'isolation de votre logement, à opter pour des sources d'énergie renouvelable, ou à réduire votre consommation d'énergie (chauffage, climatisation, appareils électroménagers). Chaque petit geste compte !</p>";
-                break;
-            case 'food':
-                analysisHTML += "Réduire la consommation de viande (surtout bovine), privilégier les produits locaux et de saison, et minimiser le gaspillage alimentaire sont des actions efficaces.</p>";
-                break;
-            case 'buy':
-                analysisHTML += "Adopter une consommation plus responsable : acheter moins mais mieux, privilégier les produits durables, réparables, et d'occasion. Pensez à l'impact de la fabrication et du transport des biens que vous achetez.</p>";
-                break;
-            case 'waste and recycle':
-                analysisHTML += "Optimisez votre tri des déchets, compostez si possible, et réduisez votre production de déchets à la source en évitant les produits sur-emballés et à usage unique.</p>";
-                break;
-            default:
-                analysisHTML += "Essayez d'identifier les leviers spécifiques dans cette catégorie pour réduire votre impact.</p>";
-        }
+    switch (highest.name.toLowerCase()) {
+        case 'transport':
+            html += "Consider alternatives like biking, public transit, or carpooling. For long trips, trains are better than planes or solo driving.</p>";
+            break;
+        case 'housing':
+            html += "Improve insulation, switch to renewable energy, or reduce heating/cooling usage to cut emissions.</p>";
+            break;
+        case 'food':
+            html += "Eat less meat, prefer seasonal/local food, and reduce food waste to make a difference.</p>";
+            break;
+        case 'buy':
+            html += "Buy fewer but better-quality products, second-hand items, and avoid overconsumption.</p>";
+            break;
+        case 'waste and recycle':
+            html += "Recycle more, compost organic waste, and reduce single-use items and packaging.</p>";
+            break;
     }
 
-    analysisHTML += "<p><strong>Conseils généraux pour réduire votre empreinte :</strong></p>" +
-                    "<ul>" +
-                    "<li><strong>Sensibilisez votre entourage :</strong> Partagez vos découvertes et encouragez les autres à évaluer et réduire leur propre empreinte.</li>" +
-                    "<li><strong>Compensez vos émissions :</strong> Si possible, vous pouvez investir dans des projets de compensation carbone certifiés.</li>" +
-                    "<li><strong>Adoptez un mode de vie sobre :</strong> Questionnez vos besoins réels et cherchez à réduire votre consommation globale.</li>" +
-                    "</ul>";
+    html += "<p><strong>General tips:</strong></p><ul>" +
+        "<li><strong>Raise awareness:</strong> Share what you’ve learned and help others reduce their footprint too.</li>" +
+        "<li><strong>Offset carbon:</strong> Support certified carbon offsetting projects if possible.</li>" +
+        "<li><strong>Live simply:</strong> Reflect on your real needs and reduce consumption overall.</li>" +
+        "</ul>";
 
-    analysisTextElement.innerHTML = analysisHTML;
+    analysisTextElement.innerHTML = html;
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     renderGraph();
-    generateAnalysis(); // Call the new function
+    generateAnalysis();
 });

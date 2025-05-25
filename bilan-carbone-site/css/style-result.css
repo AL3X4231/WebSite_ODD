@@ -208,6 +208,30 @@ main {
         padding-right: 10px;
     }
 }
+
+/* --- Total Emissions Section --- */
+.total-emissions {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.total-emissions h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.total-emissions .total-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 0;
+}
+
 /* --- Footer --- */
 .footer {
     background: #1e7c4a;
