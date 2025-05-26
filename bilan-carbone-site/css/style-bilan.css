@@ -804,21 +804,21 @@ footer {
 
 /* Styles for flight input groups */
 #flight-inputs-container .flight-input-group {
-    display: flex; /* Aligns items in a row */
-    align-items: center; /* Vertically aligns items in the center */
-    margin-bottom: 10px; /* Adds some space below each flight group */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 #flight-inputs-container .flight-input-group label {
-    margin-right: 5px; /* Adds a small space to the right of the labels */
-    font-size: 0.9em; /* Slightly smaller font for labels */
+    margin-right: 5px;
+    font-size: 0.9em;
 }
 
 #flight-inputs-container .flight-input-group select {
-    width: 150px; /* Reduced width for the select dropdowns */
-    padding: 5px; /* Reduced padding inside the select */
-    font-size: 0.8em; /* Reduced font size for the text inside select */
-    margin-right: 10px; /* Adds space between the two select boxes */
+    width: 150px;
+    padding: 5px;
+    font-size: 0.8em;
+    margin-right: 10px;
 }
 
 .btn-add, .btn-remove-flight {

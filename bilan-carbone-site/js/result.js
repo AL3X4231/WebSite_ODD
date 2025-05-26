@@ -6,7 +6,7 @@ const consumption = parseFloat(localStorage.getItem("consumptionFootprint")) || 
 const waste = parseFloat(localStorage.getItem("wasteFootprint")) || 0;
 
 
-const total = transport + housing + food + consumption + waste || 1; // Avoid division by 0
+const total = transport + housing + food + consumption + waste || 1; 
 
 
 const variables = [
