@@ -440,6 +440,6 @@ function handleWasteSubmit() {
     const wasteFootprint = calculateWasteEmissions(formData);
     localStorage.setItem("wasteFootprint", wasteFootprint);
     console.log(`Waste & recycling carbon footprint: ${wasteFootprint.toFixed(2)} kg CO₂/year`);
-    window.location.href = '/result.html';
+    window.location.href = 'result.html';
 }
 
